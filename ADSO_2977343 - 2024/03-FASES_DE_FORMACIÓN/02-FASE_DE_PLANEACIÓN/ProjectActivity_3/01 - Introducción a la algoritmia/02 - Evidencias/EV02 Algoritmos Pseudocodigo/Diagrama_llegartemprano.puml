@@ -1,0 +1,39 @@
+@startuml llegarTemprano
+skinparam backgroundColor #EEEBDC
+skinparam handwritten false
+skinparam defaultFontName Arial
+
+state "Inicio" as Inicio
+state "¿Qué hora es para despertar?" as HoraDespertar
+state "Revisar alternativas rápidas (taxi, app de transporte)" as RevisarAlternativas
+state "Solicitar transporte" as SolicitarTransporte
+state "Llamar para avisar posible retraso" as AvisarRetraso
+state "Prepararse para salir" as Prepararse
+state "¿Listo para salir?" as ListoSalir
+state "¿Tiempo suficiente para imprevistos?" as TiempoImprevistos
+state "Salir inmediatamente" as SalirRapido
+state "Salir con tiempo extra" as SalirNormal
+state "Viajar al trabajo" as Viajar
+state "¿Llegué a tiempo?" as LlegueATiempo
+state "Fin (Llegué a tiempo)" as FinATiempo
+state "Fin (Llegué tarde)" as FinTarde
+
+Inicio --> HoraDespertar
+HoraDespertar --> RevisarAlternativas
+RevisarAlternativas --> SolicitarTransporte
+RevisarAlternativas --> AvisarRetraso
+HoraDespertar --> Prepararse
+Prepararse --> ListoSalir
+ListoSalir --> Prepararse
+ListoSalir --> TiempoImprevistos
+TiempoImprevistos --> SalirRapido
+TiempoImprevistos --> SalirNormal
+SolicitarTransporte --> Viajar
+AvisarRetraso --> Viajar
+SalirRapido --> Viajar
+SalirNormal --> Viajar
+Viajar --> LlegueATiempo
+LlegueATiempo --> FinATiempo
+LlegueATiempo --> FinTarde
+
+@enduml

@@ -1,0 +1,29 @@
+@startuml
+' Versión: 1.0
+' Descripción: Diagrama de casos de uso inicial para la academia musical.
+
+left to right direction
+
+actor Administrador
+actor Profesor
+actor Estudiante
+actor Usuario
+
+rectangle "Sistema Academia Musical" {
+    usecase "Gestionar Usuarios" as GestionarUsuarios
+    usecase "Gestionar Cursos" as GestionarCursos
+    usecase "Registrar Asistencia" as RegistrarAsistencia
+    usecase "Consultar Horario" as ConsultarHorario
+    usecase "Consultar Cursos" as ConsultarCursos
+    usecase "Registrar Estudiante" as RegistrarEstudiante
+}
+
+Administrador -- GestionarUsuarios
+Administrador -- GestionarCursos
+Profesor -- RegistrarAsistencia
+Estudiante -- ConsultarHorario
+Estudiante -- ConsultarCursos
+Usuario -- ConsultarCursos
+Usuario -- RegistrarEstudiante
+
+@enduml
